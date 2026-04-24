@@ -1,0 +1,89 @@
+{
+	"Name": "AllMinigamesNPC",
+	"Portrait": "Man",
+	"CharacterName": "Никто",
+	"Sentences": [
+		{
+			"Id": 0,
+			"IsPlayer": false,
+			"Text": "В чем соревноваться будем, пане?",
+			"NextSentenceId": 1
+		},
+		{
+			"Id": 1,
+			"IsPlayer": true,
+			"IsOption": true,
+			"Text": "Ловкость",
+			"NextSentenceId": 5
+		},
+		{
+			"Id": 2,
+			"IsPlayer": true,
+			"IsOption": true,
+			"Text": "Сила",
+			"NextSentenceId": 6
+		},
+		{
+			"Id": 3,
+			"IsPlayer": true,
+			"IsOption": true,
+			"Text": "Интеллект",
+			"NextSentenceId": 7
+		},
+		{
+			"Id": 4,
+			"IsPlayer": true,
+			"IsOption": true,
+			"Text": "Что-то не хочу"
+		},
+		{
+			"Id": 5, //ловкость
+			"IsPlayer": false,
+			"Text": "Поуворачивайся от моих куриц!",
+			"StartMinigame": true,
+			"MiniGameType": "Agility",
+			"MiniGameSceneName": "MiniGameAgility",
+			"MinigameParams": {
+				"Win": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Success"
+				},
+				"Lose": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Fail"
+				}
+			}
+		},
+		{
+			"Id": 6, //сила
+			"IsPlayer": false,
+			"Text": "Давай, давай! Нападай!",
+			"StartMinigame": true,
+			"MiniGameType": "PowerCheck",
+			"MiniGameSceneName": "MiniGameStrength",
+			"MinigameParams": {
+				"EnemyPrefab": "MiniGames/PowerCheck/Thief",
+				"Win": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Success"
+				},
+				"Lose": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Fail"
+				}
+			}
+		},
+		{
+			"Id": 7, //Интелект
+			"IsPlayer": false,
+			"Text": "Попробуй напряч свои извилины!",
+			"StartMinigame": true,
+			"MiniGameType": "Intelligence",
+			"MiniGameSceneName": "MiniGameIntellect",
+			"MinigameParams": {
+				"Win": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Success"
+				},
+				"Lose": {
+					"Dialog": "Dialogues/NPC/AllMinigamesNPC/AllMinigamesNPC_Fail"
+				}
+			}
+		}
+	]
+}

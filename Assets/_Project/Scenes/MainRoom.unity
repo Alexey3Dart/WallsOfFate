@@ -19533,8 +19533,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1807018338}
   - {fileID: 939666481}
+  - {fileID: 1807018338}
   - {fileID: 1499047478}
   - {fileID: 2127873605}
   m_Father: {fileID: 1323262236}
@@ -61900,6 +61900,18 @@ PrefabInstance:
     - target: {fileID: 3393235770061430848, guid: a017305685ad7e445b3644bf2b500597, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320074814132347193, guid: a017305685ad7e445b3644bf2b500597, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383209801725600382, guid: a017305685ad7e445b3644bf2b500597, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383209801725600382, guid: a017305685ad7e445b3644bf2b500597, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
