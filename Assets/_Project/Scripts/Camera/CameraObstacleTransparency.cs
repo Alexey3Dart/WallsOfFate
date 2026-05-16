@@ -4,6 +4,7 @@ using Zenject;
 
 namespace Game
 {
+    [DefaultExecutionOrder(10001)]
     [RequireComponent(typeof(Camera))]
     public class CameraObstacleTransparency : MonoBehaviour
     {
@@ -40,7 +41,7 @@ namespace Game
         private static readonly int OcclusionDitherStrengthId = Shader.PropertyToID("_OcclusionDitherStrength");
 
         [Header("Detection")]
-        [SerializeField] private OcclusionDetectionMode detectionMode = OcclusionDetectionMode.PhysicsCollidersAndRendererBounds;
+        [SerializeField] private OcclusionDetectionMode detectionMode = OcclusionDetectionMode.PhysicsColliders;
         [SerializeField] private LayerMask obstacleMask = Physics.DefaultRaycastLayers;
         [SerializeField, Min(0.01f)] private float probeRadius = 0.35f;
         [SerializeField, Min(0f)] private float distancePadding = 0.25f;
@@ -100,7 +101,7 @@ namespace Game
         {
             if (player != null)
             {
-                _player = player.transform;
+                SetTarget(player.transform);
             }
         }
 
@@ -112,7 +113,6 @@ namespace Game
 
         private void LateUpdate()
         {
-            TryResolvePlayer();
             if (_player == null)
             {
                 _occludingRenderers.Clear();
@@ -668,18 +668,9 @@ namespace Game
             _collectedRenderers.Clear();
         }
 
-        private void TryResolvePlayer()
+        public void SetTarget(Transform target)
         {
-            if (_player != null)
-            {
-                return;
-            }
-
-            PlayerMoveController[] players = FindObjectsByType<PlayerMoveController>(FindObjectsInactive.Include);
-            if (players.Length > 0 && players[0] != null)
-            {
-                _player = players[0].transform;
-            }
+            _player = target;
         }
 
         private static bool IsValidVector(Vector3 value)
